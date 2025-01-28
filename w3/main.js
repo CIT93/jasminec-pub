@@ -17,15 +17,28 @@ function determineHouseHoldPts(numberInHousehold) {
     } else {
         console.log("no points updated");
     }
-    console.log(`The number of members of household ${numberInHousehold} and what points you get ${carbonFpPoints}.`)
-}
-
-let carbonFpPoints = 0;
+     console.log(`if the number of members of household you have is ${numberInHousehold} then you get ${carbonFpPoints} points.`)
+}    
+    let carbonFpPoints = 0;
 // const numberInHousehold = 3;
-
-
 
 // global scope
 
 determineHouseHoldPts(3)
-determineHouseHoldPts(4)
+// determineHouseHoldPts(4)
+
+function determineHouseSizePts(houseSize) {
+    
+    if (houseSize === "large") {
+        carbonFpPoints = carbonFpPoints + 10;
+    } else if (houseSize === "medium") {
+        carbonFpPoints = carbonFpPoints + 7;
+    } else if (houseSize === "small") {
+        carbonFpPoints = carbonFpPoints + 4;
+    } else if (houseSize === "apartment") {
+        carbonFpPoints = carbonFpPoints + 2;
+    }
+    console.log(`if your house size is ${houseSize}, then your points is ${carbonFpPoints} in total.`)
+}
+
+determineHouseSizePts("apartment");
