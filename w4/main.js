@@ -40,7 +40,7 @@ function determineHouseHoldPts(numberInHousehold) {
         
     }
     
-     return houseHoldPts
+     return houseHoldPts;
 }   
 
 console.log("global scope");
@@ -55,8 +55,15 @@ function start(houseHoldMembers, houseSize) {
 }
 
 function displayOutput() {
-    
+    for (arr of cfpData){
+        console.log(arr)
+        const output = document.getElementById("output");
+        const newP = document.createElement("p");
+        newP.textContent = `Carbon Footprint total is ${arr[4]}, number of household members is ${arr[3]}, score for household members is ${arr[10]},the house size is ${arr["apartment"]},the score of house size is ${arr[2]}.`;
+        output.appendChild(newP);
+    }
 }
+
 
 start(3, "apartment");
 start(4, "large");
