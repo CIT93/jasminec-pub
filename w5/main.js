@@ -85,7 +85,7 @@ function displayOutput() {
         newP.textContent += `and a ${obj.houseS} size of home (score: ${obj.houseSPTS})`;
         output.appendChild(newH2);
         output.appendChild(newH3);
-       
+        output.appendChild(newP);
     }
 }
 
