@@ -118,7 +118,7 @@ start(5, "large");
 start(6, "large");
 start(7, "large");
 
-//console.log(cfpData);
+
 displayOutput();
 
 
