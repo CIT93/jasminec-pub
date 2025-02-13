@@ -53,13 +53,6 @@ function start(houseHoldMembers, houseSize) {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePts;
-//   const cfpObj = {
-//     houseM: houseHoldMembers,
-//     houseS: houseSize,
-//     houseMPTS: houseHoldPTS,
-//     houseSPTS: houseSizePts,
-//     cfpTotal: total,
-//   };
   cfpData.push({
     houseM: houseHoldMembers,
     houseS: houseSize,
