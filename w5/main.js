@@ -115,27 +115,34 @@
 // displayOutput();
 
 const moviesArr = [
-  { title: "The Wild Robot", year: "2024", rating: "8/10" },
+  { title: "The Wild Robot", year: "2024", rating: "8/10", watched: "1" },
   {
     title: "Lord of the Rings:The Fellowship of the Rings",
     year: "2001",
     rating: "9/10",
+    watched: "3"
   },
   {
     title: "Lord of the Rings:The Return of the King",
     year: "2003",
     rating: "9/10",
+    watched: "1"
   },
-  { title: "Cats", year: "2019", rating: "2/10" },
+  { title: "Cats", year: "2019", rating: "2/10", watched: "0" },
 ];
 
 function displayOutputMovies() {
   const output = document.getElementById("output");
-  for (const obj of moviesArr) {
+  moviesArr.forEach(function(movies) {
+    if (movies.rating >= 6 && movies.watched >= 5) {
+  // for (const obj of moviesArr) {
     console.log(obj)
     const newH2 = document.createElement("H2");
     newH2.textContent = `The movie "${obj.title}" was released in ${obj.year} has a rating of ${obj.rating}`;
     output.appendChild(newH2);
-  }
+    }
+  })
 }
+  
+
 displayOutputMovies();
