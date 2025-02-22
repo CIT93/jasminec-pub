@@ -115,30 +115,30 @@
 // displayOutput();
 
 const moviesArr = [
-  { title: "The Wild Robot", year: "2024", rating: "8/10", watched: "1" },
+  { title: "The Wild Robot", year: "2024", rating: "8", watched: "1" },
   {
     title: "Lord of the Rings:The Fellowship of the Rings",
     year: "2001",
-    rating: "9/10",
+    rating: "9",
     watched: "3"
   },
   {
     title: "Lord of the Rings:The Return of the King",
     year: "2003",
-    rating: "9/10",
+    rating: "9",
     watched: "1"
   },
-  { title: "Cats", year: "2019", rating: "2/10", watched: "0" },
+  { title: "Cats", year: "2019", rating: "2", watched: "0" },
 ];
 
 function displayOutputMovies() {
   const output = document.getElementById("output");
   moviesArr.forEach(function(movies) {
-    if (movies.rating >= 6 && movies.watched >= 5) {
+    if (movies.rating >= 6 || movies.watched <= 5) {
   // for (const obj of moviesArr) {
-    console.log(obj)
+    // console.log(obj)
     const newH2 = document.createElement("H2");
-    newH2.textContent = `The movie "${obj.title}" was released in ${obj.year} has a rating of ${obj.rating}`;
+    newH2.textContent = `The movie "${movies.title}" was released in ${movies.year} has a rating of ${movies.rating}`;
     output.appendChild(newH2);
     }
   })
