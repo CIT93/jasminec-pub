@@ -1,4 +1,5 @@
 const TBL = document.getElementById("movie-data");
+const output = document.getElementById("output");
 
 const moviesArr = [
   { title: "The Wild Robot", 
@@ -72,24 +73,3 @@ function displayOutputMovies() {
 
 displayOutputMovies();
 
-// function renderTblHeading() {
-//   Tbl.innerHtml = "";
-
-//   headingArr.forEach(function(text){
-//     const th = document.createElement("th");
-//     th.textContent = text;
-//     tr.appendChild(th);
-//   })
-//   thead.appendChild(thead);
-  
-// }
-
-// function renderTbl(movie) {
-//   const table = document.createElement("table");
-//   const tbody = document.createElement("tbody");
-//   const moviesArr = ["Lord of the Rings:The Fellowship of the Rings", 2001, 9, 3];
-//   movie.forEach(function(obj){
-
-
-//   })
-// }
