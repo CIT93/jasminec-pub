@@ -17,7 +17,7 @@ function renderTblHeading () {
     return table
 }
 
-function renderTblBtn(index, data){
+function renderTblBtn(obj, index, data){
     const td = document.createElement("td");
     const btnEdit = document.createElement("button");
     const btnDel = document.createElement("button");
@@ -26,14 +26,20 @@ function renderTblBtn(index, data){
     td.appendChild(btnEdit);
     td.appendChild(btnDel);
     btnDel.addEventListener('click', function(e){
+
         console.log("Hello from inside the Delete button")
         console.log(e);
         data.splice(index, 1);
         renderTb1(data);
     })
     btnEdit.addEventListener('click', function(e){
-        data.splice(index, 0, data );
-        renderTb1(data);
+        FORM.firstName.value = obj.firstName
+        FORM.lastName.value = obj.lastName
+        FORM.houseHouseholdMembers.value = obj.houseHouseholdMembers
+        FORM.houseSize.value = obj.houseSize
+
+        data.splice();
+        renderTblBody();
     })
     return td; 
 }
