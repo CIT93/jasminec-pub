@@ -1,4 +1,5 @@
 const TBL = document.getElementById("tab-data");
+const FORM = document.getElementById("myForm");
 
 function renderTblHeading () {
     TBL.innerHTML = "";
@@ -33,13 +34,13 @@ function renderTblBtn(obj, index, data){
         renderTb1(data);
     })
     btnEdit.addEventListener('click', function(e){
-        FORM.firstName.value = obj.firstName
-        FORM.lastName.value = obj.lastName
-        FORM.houseHouseholdMembers.value = obj.houseHouseholdMembers
-        FORM.houseSize.value = obj.houseSize
+        FORM.firstName.value = obj.firstName;
+        FORM.lastName.value = obj.lastName;
+        FORM.houseHouseholdMembers.value = obj.houseHouseholdMembers;
+        FORM.houseSize.value = obj.houseSize;
 
-        data.splice();
-        renderTblBody();
+        data.splice(index, 1);
+        renderTblBody(data);
     })
     return td; 
 }
