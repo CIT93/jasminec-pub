@@ -5,6 +5,7 @@ import {saveLS, cfpData} from "./storage.js";
 
 const firstNameEl = document.getElementById("firstName");
 const lastNameEl = document.getElementById("lastName");
+const submitEl = document.getElementById("submitError");
 
 function start(houseHoldMembers, houseSize, firstName, lastName) {
     const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
@@ -27,28 +28,26 @@ function start(houseHoldMembers, houseSize, firstName, lastName) {
   FORM.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const firstName = FORM.firstname.value;
-    const lastName = FORM.lastname.value;
+    const firstName = FORM.firstName.value;
+    const lastName = FORM.lastName.value;
     const firstNameIsValid = firstNameEl.value !== '';
     const lastNameIsValid = lastNameEl.value !== '';
-    const messages = [];
     
     if(firstNameIsValid && lastNameIsValid) {
-      
+      submitEl.textContent = '';
+      const householdm = parseInt(FORM.householdm.value);
+      const houses = FORM.houses.value;
+      start(householdm, houses, firstName, lastName);
+      saveLS(cfpData);
+      renderTb1(cfpData);
+      FORM.reset();
+    } else {
+      submitEl.textContent = "Form requires full name.";
+
     }
 
-    const householdm = parseInt(FORM.householdm.value);
-    const houses = FORM.houses.value;
-    start(householdm, houses, firstName, lastName);
-    saveLS(cfpData);
-    renderTb1(cfpData);
-    FORM.reset();
+
   });
-
-  // renderTb1(cfpData);
-
-  firstNameEl.addEventListener('blur', validateField);
-  lastNameEl.addEventListener('blur', validateField);
 
   function validateField(event) {
     const field = event.target.value;
@@ -63,3 +62,7 @@ function start(houseHoldMembers, houseSize, firstName, lastName) {
     }
   }
 
+  firstNameEl.addEventListener('blur', validateField);
+  lastNameEl.addEventListener('blur', validateField);
+
+  renderTb1(cfpData);
