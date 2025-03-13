@@ -2,7 +2,9 @@ import { renderTb1 } from "./render.js";
 import { determineHouseHoldPts, determineHouseSizePts } from "./cfp.js";
 import {FORM} from "./global.js";
 import {saveLS, cfpData} from "./storage.js";
-const errorElement = document.getElementById("error")
+
+const firstNameEl = document.getElementById("firstName");
+const lastNameEl = document.getElementById("lastName");
 
 function start(houseHoldMembers, houseSize, firstName, lastName) {
     const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
@@ -27,13 +29,14 @@ function start(houseHoldMembers, houseSize, firstName, lastName) {
 
     const firstName = FORM.firstname.value;
     const lastName = FORM.lastname.value;
+    const firstNameIsValid = firstNameEl.value !== '';
+    const lastNameIsValid = lastNameEl.value !== '';
     const messages = [];
-    if (firstName === "" || firstName == null){
-      messages.push("Please enter First name requirment.")
+    
+    if(firstNameIsValid && lastNameIsValid) {
+      
     }
-    if (lastName === "" || lastName == null){
-      messages.push("Please enter Last name requirment.")
-    }
+
     const householdm = parseInt(FORM.householdm.value);
     const houses = FORM.houses.value;
     start(householdm, houses, firstName, lastName);
@@ -42,4 +45,21 @@ function start(houseHoldMembers, houseSize, firstName, lastName) {
     FORM.reset();
   });
 
-  renderTb1(cfpData);
+  // renderTb1(cfpData);
+
+  firstNameEl.addEventListener('blur', validateField);
+  lastNameEl.addEventListener('blur', validateField);
+
+  function validateField(event) {
+    const field = event.target.value;
+    const fieldId = event.target.id;
+    const fieldError = document.getElementById(`${fieldId}Error`);
+    if (field === '') {
+      fieldError.textContent = `${fieldId} is required`;
+      event.target.classList.add('invalid');
+    } else {
+      fieldError.textContent = '';
+      event.target.classList.remove('invalid');
+    }
+  }
+
