@@ -1,5 +1,5 @@
-
-const determineHouseSizePts = function(size) {
+// default value
+const determineHouseSizePts = (size = "apt") => {
     let houseSizePoints = 0;
     if (size === "large") {
       houseSizePoints = 10;
@@ -13,7 +13,7 @@ const determineHouseSizePts = function(size) {
     return houseSizePoints;
   }
   
-const determineHouseHoldPts = function(numberInHousehold) {
+const determineHouseHoldPts = (numberInHousehold = 4) => {
     let houseHoldPoints = 0;
     if (numberInHousehold === 1) {
       houseHoldPoints = 14;
@@ -33,20 +33,20 @@ const determineHouseHoldPts = function(numberInHousehold) {
     return houseHoldPoints;
   }
   
-  const displayOutObj = function(obj) {
-    console.log(obj);
-    const output = document.getElementById("output");
-    const newP = document.createElement("p");
-    const newH2 = document.createElement("h2");
-    newH2.textContent = `Carbon Footprint is ${obj.cfpTotal}`;
-    const newH3 = document.createElement("h3");
-    newH3.textContent = `Based on Number in Household and Size of Home.`
-    newP.textContent = `This number is based on the number of members in the home of ${obj.houseM} (score: ${obj.houseMPTS})`;
-    newP.textContent += `and a ${obj.houseS} size of home (score: ${obj.houseSPTS})`;
-    output.appendChild(newH2);
-    output.appendChild(newH3);
-    output.appendChild(newP);
-  }
+  // const displayOutObj = (obj) =>{
+  //   console.log(obj);
+  //   const output = document.getElementById("output");
+  //   const newP = document.createElement("p");
+  //   const newH2 = document.createElement("h2");
+  //   newH2.textContent = `Carbon Footprint is ${obj.cfpTotal}`;
+  //   const newH3 = document.createElement("h3");
+  //   newH3.textContent = `Based on Number in Household and Size of Home.`
+  //   newP.textContent = `This number is based on the number of members in the home of ${obj.houseM} (score: ${obj.houseMPTS})`;
+  //   newP.textContent += `and a ${obj.houseS} size of home (score: ${obj.houseSPTS})`;
+  //   output.appendChild(newH2);
+  //   output.appendChild(newH3);
+  //   output.appendChild(newP);
+  // }
   
 
   export {determineHouseHoldPts, determineHouseSizePts};
