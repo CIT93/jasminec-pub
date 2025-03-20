@@ -4,8 +4,8 @@ import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
 import { saveLS, cfpData } from "./storage.js";
 // Rest operator
 const start = (...i) => {
-  const houseHoldPTS = determineHouseHoldPts(i[1]);
-  const houseSizePts = determineHouseSizePts(i[2]);
+  const houseHoldPTS = determineHouseHoldPts(i[0]);
+  const houseSizePts = determineHouseSizePts(i[1]);
   const total = houseHoldPTS + houseSizePts;
   cfpData.push({
     firstname: i[2],
