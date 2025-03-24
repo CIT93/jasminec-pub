@@ -18,6 +18,21 @@ const start = (...i) => {
   });
 };
 
+// const start = (houseHoldMembers, houseSize, firstName, lastName) => {
+//   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
+//   const houseSizePts = determineHouseSizePts(houseSize);
+//   const total = houseHoldPTS + houseSizePts;
+//   cfpData.push({
+//    firstname: firstName,
+//    lastname: lastName,
+//    houseM: houseHoldMembers,
+//    houseS: houseSize,
+//    houseMPTS: houseHoldPTS,
+//    houseSPTS: houseSizePts,
+//    cfpTotal: total,
+//   });
+// };
+
 renderTb1(cfpData);
 
 const validateField = event => {
