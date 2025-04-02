@@ -1,0 +1,15 @@
+
+body {
+    background-color:rgb(49, 61, 74);
+    color:rgb(199, 254, 254);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    text-align: center;
+}
+input:in-range {
+    background-color: rgb(242, 244, 110);
+}
+input:out-of-range {
+    background-color: rgba(186, 59, 97, 0.915);
+}
+
