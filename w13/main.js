@@ -3,23 +3,24 @@ const output = document.getElementById("output");
 
 // MY code
 function fitSubmission(exerciseType, exerciseTime, numOfReps) {
-
-
   return new Promise((resolve, reject) => {
     if (!exerciseType || !exerciseTime || !numOfReps) {
         output.innerHTML = '';
       reject("Error: No exercise, time, or reps added.");
     } else {
       setTimeout(() => {
-        const message = document.createElement("p");
-        message.textContent = `Stop ${exerciseType}.`;
-        output.appendChild(message);
-        FORM.reset();
-        resolve('');
-      }, 2000);
+        resolve(`${exerciseType}`);
+      }, 3000);
     }
   });
   
+}
+
+function onSuccess(data){
+    const message = document.createElement("p");
+    message.textContent = `Stop ${data}.`;
+    output.appendChild(message);
+    FORM.reset();    
 }
 
 function onError(errorCode) {
@@ -41,6 +42,7 @@ FORM.addEventListener("submit", function (e) {
   output.appendChild(message);
 
   fitSubmission(exerciseType, exerciseTime, numOfReps)
+    .then(onSuccess)
     .catch(onError);
 });
 
