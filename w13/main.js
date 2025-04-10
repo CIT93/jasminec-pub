@@ -26,12 +26,11 @@ const output = document.getElementById("output");
 
 // MY code
 function fitSubmission(exerciseType, exerciseTime, numOfReps) {
-  const heading = document.createElement("h2");
-  heading.textContent = "Submit to start!";
-  output.appendChild(heading);
+
 
   return new Promise((resolve, reject) => {
     if (!exerciseType || !exerciseTime || !numOfReps) {
+        output.innerHTML = '';
       reject("Error: No exercise, time, or reps added.");
     } else {
       setTimeout(() => {
@@ -39,10 +38,11 @@ function fitSubmission(exerciseType, exerciseTime, numOfReps) {
         message.textContent = `Stop ${exerciseType}.`;
         output.appendChild(message);
         FORM.reset();
-        resolve();
+        resolve('');
       }, 2000);
     }
   });
+  
 }
 
 function onError(errorCode) {
