@@ -5,7 +5,6 @@ const output = document.getElementById("output");
 function fitSubmission(exerciseType, exerciseTime, numOfReps) {
   return new Promise((resolve, reject) => {
     if (!exerciseType || !exerciseTime || !numOfReps) {
-        output.innerHTML = '';
       reject("Error: No exercise, time, or reps added.");
     } else {
       setTimeout(() => {
