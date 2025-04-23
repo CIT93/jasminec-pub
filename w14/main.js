@@ -1,4 +1,4 @@
-
+// Photos
 function renderPhotos(photos) {
 photos.forEach((img) => {
     const imgEl = document.createElement("img")
@@ -17,6 +17,7 @@ async function getPhotos(){
     }
 }
 
+// comments
 function renderComments(comments){
     comments.forEach((comment) => {
         const comEl = document.createElement("comment") 
@@ -38,7 +39,7 @@ async function getComments(){
     }
 }
 
-
+// Success or Failure
 async function onSuccess(result){
     console.log(`SUCCESS: ${result}`)
     renderPhotos(result);
