@@ -1,5 +1,5 @@
 import {FORM, TBL} from "./global.js";
-import {saveLS} from "./storage.js"
+import {cfpData, saveLS} from "./storage.js"
 
 const renderTblHeading = () =>{
     // TBL.innerHTML = "";
@@ -63,6 +63,8 @@ const renderTblBody = data =>{
         tbody.appendChild(tr);
         
     });
+
+
     return tbody;
 }
 
@@ -74,9 +76,40 @@ const renderTb1 = data =>{
         table.appendChild(tbody);
         console.log(table);
         TBL.appendChild(table); 
+
+        addRow("tab-data")
     }
  
+
 };
+
+// rendering average
+const displayAvg = () => {
+    // const mapArr = cfpData.map((data) => {
+    //     return data.total
+    // })
+
+    const total = cfpData.reduce((sum, fpScore) => sum + fpScore.total, 0)
+    // console.log(total)
+    const totalAvg = total/cfpData.length;
+    // console.log(totalAvg)
+    return totalAvg
+}
+
+const addRow = () => {
+    const tableRef = document.getElementById("tableId")
+
+    let newRow = tableRef.insertRow(-1)
+    let newCella = newRow.insertCell(0)
+    let newCellb = newRow.insertCell(1)
+
+    let avgNum = displayAvg()
+    let newText = document.createTextNode("FP avg score")
+    newCella.appendChild(newText)
+    let textAvg = document.createTextNode(avgNum)
+    newCellb.appendChild(textAvg)
+}
+
 
 
 export {renderTb1, renderTblHeading};

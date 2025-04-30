@@ -4,7 +4,6 @@ import { saveLS, cfpData } from "./storage.js";
 import {FP} from "./fp.js";
 
 
-
 renderTb1(cfpData);
 
 const validateField = event => {
