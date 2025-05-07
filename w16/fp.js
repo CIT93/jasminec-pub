@@ -1,16 +1,21 @@
 class FP {
-    constructor(first, last, houseMembers, houseSize, foodChoice, foodSource, waterCon) {
+    constructor(first, last, houseMembers, houseSize, foodChoice, foodSource, dishWasher, washMachine) {
       this.first = first;
       this.last = last;
       this.houseMembers = houseMembers;
       this.houseSize = houseSize;
       this.foodChoice = foodChoice;
       this.foodSource = foodSource;
-      this.waterConsumedPoints = waterCon;
+      this.dishWasher = dishWasher;
+      this.washMachine = washMachine;
+
       this.houseHoldPoints();
       this.houseSizePoints();
       this.foodChoicePoints();
       this.foodSourcePoints();
+      
+      this.dishWasherCalc();
+      this.washingMachineCalc();
       this.calculateTotal();
     }
     houseSizePoints() {
@@ -62,8 +67,32 @@ class FP {
         this.foodSourcePoints = 2;
       }
     }
+
+    dishWasherCalc(){
+        if(this.dishWasher > 9){
+          this.dishWasherCalc = 3;
+        } else if(this.dishWasher >= 4 && this.dishWasher <= 9){
+          this.dishWasherCalc = 2;
+        } else if(this.dishWasher >= 1 && this.dishWasher <= 3 ){
+          this.dishWasherCalc = 1;
+        } else if (this.dishWasher === 0) {
+          this.dishWasherCalc = 0;
+        }
+    }
+    washingMachineCalc(){
+        if(this.washMachine > 9){
+          this.washingMachineCalc = 3;
+        } else if(this.washMachine >= 4 && this.washMachine <= 9){
+          this.washingMachineCalc = 2;
+        } else if(this.washMachine >= 1 && this.washMachine <= 3 ){
+          this.washingMachineCalc = 1;
+        } else if (this.washMachine === 0) {
+          this.washingMachineCalc = 0;
+        }
+    }
+
     calculateTotal(){
-      this.total = this.houseHoldPoints + this.houseSizePoints + this.foodChoicePoints + this.foodSourcePoints + this.waterConsumedPoints;
+      this.total = this.houseHoldPoints + this.houseSizePoints + this.foodChoicePoints + this.foodSourcePoints + this.dishWasherCalc + this.washingMachineCalc;
     }
   }
   

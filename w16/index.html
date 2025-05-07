@@ -64,15 +64,28 @@
             </select>            
         </div>
         <div>
-            <label for="">Examine your water consumption:</label>
-            <select name="waterc" id="">
-                <option value="">---dishwasher and washing machine usage---</option>
-                <option value="3">More than 9 per week</option>
-                <option value="2">4 to 9 times per week</option>
-                <option value="1">1 to 3 times per week</option>
-                <option value="0">No dishwasher</option>
-            </select>            
+            <label for="">Examine your water consumption when using dishwasher:</label>
+            <input type="number" name="dishw" min="0" max="20">            
         </div>
+        <!-- <div>
+            <label for="">Check the box if you have a dishwasher and washing machine.</label>            
+            <input type="checkbox" id="myDishWasher" name="dishw">
+        </div> -->
+        <div>
+          <label for="">Examine your water consumption when using washing machine:</label>
+          <input type="number" name="washm" min="0" max="20">           
+      </div>
+        <!-- <div>
+            <label for="">How many household purchases you make each year:</label>
+            <select name="purchases" id="">
+                <option value="">---Choose how many items---</option>
+                <option value="">More than 7 new items</option>
+                <option value="">Between 5 to 7 items</option>
+                <option value="">Between 3 to 5 items</option>
+                <option value="">Less than 3 items</option>
+                <option value="">Nothing or secondhand items</option>
+            </select>            
+        </div> -->
         <button type="submit">Submit</button>
         <span id="submitError" class="error"></span>
       </fieldset>

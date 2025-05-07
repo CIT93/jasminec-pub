@@ -33,7 +33,8 @@ FORM.addEventListener("submit", e => {
     e.target.houses.value,
     e.target.foodc.value,
     e.target.foodsc.value,
-    parseInt(e.target.waterc.value),
+    parseInt(e.target.dishw.value),
+    e.target.washm.value,
 );
     cfpData.push(fpObj)
     saveLS(cfpData);
