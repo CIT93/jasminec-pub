@@ -35,6 +35,7 @@ FORM.addEventListener("submit", e => {
     e.target.foodsc.value,
     parseInt(e.target.dishw.value),
     e.target.washm.value,
+    e.target.itempurch.value,
 );
     cfpData.push(fpObj)
     saveLS(cfpData);
