@@ -1,0 +1,43 @@
+header {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgba(255, 240, 154, 0.944);
+  text-align: center;
+}
+
+body {
+  background-color: rgba(66, 98, 113, 0.916);
+  color: rgb(221, 255, 254);
+  font-family: monospace;
+  font-size: large;
+  text-align: center;
+}
+
+.error {
+  color: red;
+}
+
+.invalid {
+  border-color: red;
+}
+
+table {
+  border-style: dashed;
+  border-color: #ff8623;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 215, 233, 0.952);
+}
+th {
+  border-style: double;
+  border-color: aliceblue;
+  background-color: rgba(71, 74, 97, 0.635);
+  color: rgba(255, 252, 207, 0.914);
+}
+
+tr,
+td {
+  border-style: double;
+  border-color: aliceblue;
+  background-color: rgba(91, 94, 118, 0.635);
+}

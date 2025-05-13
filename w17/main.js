@@ -1,0 +1,65 @@
+import { renderTb1 } from "./render.js";
+import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
+import { saveLS, cfpData } from "./storage.js";
+import {FP} from "./fp.js";
+
+
+renderTb1(cfpData);
+
+const validateField = event => {
+  const field = event.target.value;
+  const fieldId = event.target.id;
+  const fieldError = document.getElementById(`${fieldId}Error`);
+  if (field === "") {
+    fieldError.textContent = `${fieldId} is required`;
+    event.target.classList.add("invalid");
+  } else {
+    fieldError.textContent = "";
+    event.target.classList.remove("invalid");
+  }
+};
+
+FNAME.addEventListener("blur", validateField);
+LNAME.addEventListener("blur", validateField);
+
+const determineRecycleItems = e => {
+    const numberChecked = document.querySelectorAll('.recycle:checked').length;
+    return{
+    glass: e.target.glass.checked,
+    plastic: e.target.plastic.checked,
+    paper: e.target.paper.checked,
+    aluminum: e.target.aluminum.checked,
+    steel: e.target.steel.checked,
+    food: e.target.paper.checked,
+    recyclePoints: (24 - (numberChecked * 4))
+    }
+}
+
+FORM.addEventListener("submit", e => {
+  e.preventDefault();
+//   const recycleObj = determineRecycleItems(e);
+  if (FNAME.value !== "" && LNAME.value !== "") {
+    SUBMIT.textContent = "";
+    const fpObj = new FP(
+    FNAME.value,
+    LNAME.value,
+    parseInt(e.target.householdm.value),
+    e.target.houses.value,
+    e.target.foodc.value,
+    e.target.foodsc.value,
+    parseInt(e.target.dishw.value),
+    e.target.washm.value,
+    e.target.itempurch.value,
+    e.target.wasteprod.value,
+    determineRecycleItems(e),
+);
+    cfpData.push(fpObj)
+    saveLS(cfpData);
+    renderTb1(cfpData);
+    FORM.reset();
+  } else {
+    SUBMIT.textContent = "Form requires full name.";
+  }
+});
+
+

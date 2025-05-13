@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My DMA - APT</title>
+    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <form id="form">
+        <header>
+          <h2>Activity Productivity Tracker</h2>
+        </header>
+
+        <fieldset>
+          <legend>How Productive Were You?</legend>
+          <div>
+            <label>Activity:</label>
+            <select id="activityType" name="activitytype">
+              <option value="">---Choose an activity---</option>
+              <option value="Scrolling social media">
+                Scrolling Social Media
+              </option>
+              <option value="Video games">Playing Video Games</option>
+              <option value="Writing">Writing</option>
+              <option value="Online reading">Online Reading</option>
+            </select>
+            <span id="activityTypeError" class="error"></span>
+          </div>
+
+          <div>
+            <label>Time:</label>
+            <input
+              type="number"
+              id="activityHour"
+              name="activityhour"
+              min="1"
+              max="7"
+            />
+            <span id="activityHourError" class="error"></span>
+          </div>
+          <button type="submit">Submit</button>
+          <span id="submitError" class="error"></span>
+        </fieldset>
+      </form>
+    </section>
+
+    <div id="output"></div>
+    <div id="prodTabData"></div>
+  </body>
+</html>
