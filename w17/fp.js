@@ -10,7 +10,10 @@ class FP {
     washMachine,
     purchases,
     waste,
-    recycle
+    recycle,
+    car,
+    bus,
+    plane
   ) {
     this.first = first;
     this.last = last;
@@ -23,6 +26,9 @@ class FP {
     this.purchases = purchases;
     this.waste = waste;
     this.recycle = recycle;
+    this.car = car;
+    this.bus = bus;
+    this.plane = plane;
     this.houseHoldPoints();
     this.houseSizePoints();
     this.foodChoicePoints();
@@ -31,6 +37,9 @@ class FP {
     this.dishWasherCalc();
     this.washingMachineCalc();
     this.wasteProducedPoints();
+    this.personalCarPoints();
+    this.publicTransportPoints();
+    this.flightTransportPoints();
     this.calculateTotal();
   }
   houseSizePoints() {
@@ -131,7 +140,41 @@ class FP {
         this.wasteProducedPoints = 5;
     }
   }
-
+  personalCarPoints(){
+    if(this.car === "15kMiles"){
+      this.personalCarPoints = 12;
+    } else if(this.car === "10kMiles"){
+      this.personalCarPoints = 10;
+    } else if(this.car === "1kMiles"){
+      this.personalCarPoints = 6;
+    } else if(this.car === "lessThan1k"){
+      this.personalCarPoints = 4;
+    } else if(this.car === "noCar"){
+      this.personalCarPoints = 0;
+    }
+  }
+  publicTransportPoints(){
+    if(this.bus === "20kMilesPub"){
+      this.publicTransportPoints = 12;
+    } else if(this.bus === "15kMilesPub"){
+      this.publicTransportPoints = 10;
+    } else if(this.bus === "10kMilesPub"){
+      this.publicTransportPoints = 6;
+    } else if(this.bus === "1kMilesPub"){
+      this.publicTransportPoints = 4;
+    } else if(this.bus === "noPublicT"){
+      this.publicTransportPoints = 0;
+    }
+  }
+  flightTransportPoints(){
+    if(this.plane === "short"){
+      this.flightTransportPoints = 2;
+    } else if (this.plane === "further"){
+      this.flightTransportPoints = 6;
+    } else if (this.plane === "far"){
+      this.flightTransportPoints = 20;
+    }
+  }
 
   calculateTotal() {
     this.total =
@@ -143,6 +186,9 @@ class FP {
       this.washingMachineCalc +
       this.yearlyPurchasesPoints +
       this.wasteProducedPoints +
+      this.personalCarPoints +
+      this.publicTransportPoints +
+      this.flightTransportPoints +
       this.recycle.recyclePoints;
   }
 }

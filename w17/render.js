@@ -68,7 +68,10 @@ const renderTblBtn = (obj, index, data) =>{
         FORM.steel.checked = obj.recycle.steel;
         FORM.paper.checked = obj.recycle.paper;
         FORM.food.checked = obj.recycle.food;
-        FORM.aluminum = obj.recycle.aluminum;
+        FORM.aluminum.checked = obj.recycle.aluminum;
+        FORM.personalCar.value = obj.car;
+        FORM.publicT.value = obj.bus;
+        FORM.flight.value = obj.plane;
         onUpdate(index, data);
     })
     return td; 

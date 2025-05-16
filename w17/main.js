@@ -52,6 +52,9 @@ FORM.addEventListener("submit", e => {
     e.target.itempurch.value,
     e.target.wasteprod.value,
     determineRecycleItems(e),
+    e.target.personalCar.value,
+    e.target.publicT.value,
+    e.target.flight.value,
 );
     cfpData.push(fpObj)
     saveLS(cfpData);
